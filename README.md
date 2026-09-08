@@ -30,14 +30,14 @@ Does heart rate significantly correlate with TLX scores across the two cognitive
 
 A positive intra-individual correlation indicated a significant relationship between heart rate and NASA-TLX scores (rrm (19) = 0.48, 95% CI [0.06, 0.755], p = 0.028) across two different mental workload tests, leading to the rejection of the first null hypothesis. This suggests that higher mental workload was associated with increased heart rate.
 
-![Heart Rate vs NASA-TLX plot](images/Final-Plot-HR.webp)
+![Heart Rate vs NASA-TLX plot](Final-Plot-HR.webp)
 *Each participant's data is color-coded with lines representing the rmcorr fit for each individual.*
 
 ### Finding 2: LF/HF Ratio is an Unreliable Metric
 
 In contrast, this evidence was insufficient to reject H02 for a significant correlation between the LF to HF ratio and NASA-TLX scores (rrm (19) = 0.34, 95% CI [-0.106, 0.674], p = 0.13). For real-time workload monitoring, heart rate may be a more dependable metric than noisy ratios like LF/HF, which showed higher variability among our 20 subjects.
 
-![LF/HF ratio vs NASA-TLX plot](images/Final-Plot-LFHF.webp)
+![LF/HF ratio vs NASA-TLX plot](Final-Plot-LFHF.webp)
 
 Heart rate emerged as the stronger physiological signal. Ultimately, this underscores the potential of integrating wearable tech into modern workload assessment frameworks.
 
