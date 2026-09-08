@@ -62,3 +62,45 @@ library(dplyr)
 library(ggplot2)
 library(cowplot)
 library(pals)
+
+# Load CSV file with semicolon as separator
+data_csv <- read.csv("hrv_mwl.csv", sep = ";")
+
+# Compute rmcorr between Heart Rate and NASA-TLX
+hr_nasa <- rmcorr(participant=participant, measure1=hr, measure2=nasa, dataset=data_csv)
+hr_nasa
+
+# Retain first 20 subjects for visualization clarity
+data_clean <- data_csv %>%
+  filter(Subject <= 20)
+
+# Compute rmcorr between Heart Rate and NASA-TLX
+hr_nasa <- rmcorr(participant=participant, measure1=hr, measure2=nasa, dataset=data_csv)
+hr_nasa
+
+# Visualizing plot between HR and NASA-TLX
+ggplot(data_clean, aes(x = hr, y = nasa, group = factor(participant), color = factor(participant))) +
+  geom_point(aes(colour = factor(participant))) +
+  geom_line(aes(y = hr_nasa$model$fitted.values), linetype = 2) +
+  ylab("NASA-TLX") +
+  xlab("Heart Rate") +
+  theme_cowplot() +
+  scale_shape_identity() +
+  theme(legend.position = "none",
+             plot.title = element_text(size = 20, hjust = 0.5),
+             axis.title = element_text(size = 15),
+             axis.text = element_text(size = 15),
+             axis.text.x = element_text(angle = 0, hjust = 0, vjust = 0)) +
+  scale_colour_manual(values = cols25(n)) +
+  annotate("text",
+          x = -Inf,
+          y = -Inf,
+          size = 5,
+          label = deparse(bquote(atop(~~italic(r[rm])~"="~ .(sprintf("%.2f", round(my.rmc$r, 2))),
+            ~italic(p)~.(ifelse(my.rmc$p < 0.001, "< 0.001",
+                          ifelse(my.rmc$p < 0.01, "< 0.01",
+                            ifelse(my.rmc$p < 0.05 & my.rmc$p > 0.045, "< 0.05",
+                              paste0("= ",round(my.rmc$p, digits = 2))))))))),
+          hjust = -0.5,
+          vjust = -0.5,
+          parse = TRUE)
