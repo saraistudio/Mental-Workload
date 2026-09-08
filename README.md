@@ -43,3 +43,22 @@ Heart rate emerged as the stronger physiological signal. Ultimately, this unders
 
 <details>
 <summary>View Code</summary>
+  
+```r
+# Used to compute repeated measures correlation
+install.packages("rmcorr")
+
+# Used for data manipulation
+install.packages("dplyr")
+
+# Used for visualizations
+install.packages("ggplot2")
+install.packages("cowplot")
+install.packages("pals")
+
+# Activate packages
+library(rmcorr)
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+library(pals)
