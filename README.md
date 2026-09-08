@@ -1,4 +1,10 @@
 # Mental-Workload
+
+![R](https://img.shields.io/badge/R-276DC3?style=flat&logo=r&logoColor=white)
+![RStudio](https://img.shields.io/badge/RStudio-75AADB?style=flat&logo=rstudio&logoColor=white)
+![rmcorr](https://img.shields.io/badge/rmcorr-analysis-6A5ACD?style=flat)
+![ggplot2](https://img.shields.io/badge/ggplot2-visualization-3366CC?style=flat)
+
 ## Overview
 
 Can your smartwatch tell when you're burned out? I tackled this question during 2025 UC Love Data Week, an event focused on discovering, managing, and sharing data. Using R, I examined potential correlations between physiological metrics and mental workload among 20 subjects. I found a significant relationship between heart rate and NASA-TLX scores. Thanks to affordable wearable tech making massive amounts of real-time biological data available to everyone, my work can be used to improve workplace health and safety in the digital age.
