@@ -104,3 +104,53 @@ ggplot(data_clean, aes(x = hr, y = nasa, group = factor(participant), color = fa
           hjust = -0.5,
           vjust = -0.5,
           parse = TRUE)
+
+# Compute rmcorr between ratio LF to HF and NASA-TLX
+lfhf_nasa <- rmcorr(participant=participant, measure1=lfhf, measure2=nasa, dataset=data_csv)
+lfhf_nasa
+
+# Visualizing plot between ratio LF to HF and NASA-TLX
+ggplot(data_clean, aes(x = lfhf, y = nasa, group = factor(participant), color = factor(participant))) +
+  geom_point(aes(colour = factor(participant))) +
+  geom_line(aes(y = lfhf_nasa$model$fitted.values), linetype = 2) +
+  ylab("NASA-TLX") +
+  xlab("Ratio LF to HF") +
+  theme_cowplot() +
+  scale_shape_identity() +
+  theme(legend.position = "none",
+             plot.title = element_text(size = 20, hjust = 0.5),
+             axis.title = element_text(size = 15),
+             axis.text = element_text(size = 15),
+             axis.text.x = element_text(angle = 0, hjust = 0, vjust = 0)) +
+  scale_colour_manual(values = cols25(n)) +
+  annotate("text",
+          x = Inf,
+          y = -Inf,
+          size = 5,
+          label = deparse(bquote(atop(~~italic(r[rm])~"="~ .(sprintf("%.2f", round(my.rmc$r, 2))),
+            ~italic(p)~.(ifelse(my.rmc$p < 0.001, "< 0.001",
+                          ifelse(my.rmc$p < 0.01, "< 0.01",
+                            ifelse(my.rmc$p < 0.05 & my.rmc$p > 0.045, "< 0.05",
+                              paste0("= ",round(my.rmc$p, digits = 2))))))))),
+          hjust = 1.5,
+          vjust = -0.5,
+          parse = TRUE)
+```
+
+</details>
+
+## Ethics & Privacy
+
+The dataset I used is from Kaggle, a crowdsourced platform where data scientists share data for public use. In the original dataset, each participant was assigned a unique code or number to ensure anonymity. No new data was collected for this analysis.
+
+## Lessons Learned
+
+### Insights Don't Speak for Themselves
+
+Data scientists are trained to find insights, but communicating them is often an afterthought. The final stage of the scientific process — translating results for a wider audience — is where analysis either lands or gets lost. An analysis is only as good as its explanation, and you can't assume your audience shares your background knowledge. To help others build a good mental model of the data, you need to invest as much time in visualizations as methodology. For those that want to learn more about data science, I highly recommend UC Love Data Week. I learned so much and look forward to next year's event!
+
+## References
+
+Gao, Q., Wang, Y., Song, F., Li, Z., & Dong, X. (2013). Mental workload measurement for emergency operating procedures in digital nuclear power plants. *Ergonomics*, 56(7), 1070–1085. https://doi.org/10.1080/00140139.2013.790483
+
+Izzah, N., Sutarto, A. P., & Hariyadi, M. (2022). Machine learning models for the Cognitive Stress Detection Using Heart Rate Variability Signals. *Jurnal Teknik Industri*, vol. 24, no. 2, pp. 83–94. https://doi.org/10.9744/jti.24.2.83-94
