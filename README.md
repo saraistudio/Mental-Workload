@@ -17,14 +17,14 @@ Repeated measures correlation (rmcorr) has several advantages over other techniq
 
 The dataset is from an experiment (Izzah et al., 2022) exploring machine learning models. 30 subjects completed two cognitive tests (d2 Attention Test and Switcher Featuring Task) during which their Heart Rate Variability (HRV) was monitored as a physiological indicator of mental workload. This analysis uses unpublished NASA Task Load Index (TLX) scores, a self-reported measure of perceived mental workload. Higher scores reflect higher engagement of mental workload in each task.
 
-## Hypotheses
+## 🔬 Hypotheses
 
 Does heart rate significantly correlate with TLX scores across the two cognitive workload tests? Does the low-frequency to high-frequency ratio significantly correlate with TLX scores across these tests? These questions are posed in the form of two null hypotheses:
 
 1. H01 = There is no significant correlation between heart rate and NASA-TLX scores across the two cognitive workload tests
 2. H02 = There is no significant correlation between the ratio LF to HF and NASA-TLX scores across the two cognitive workload tests
 
-## Analysis & Results
+## 📊 Analysis & Results
 
 ### Finding 1: Heart Rate Correlates with Mental Workload
 
@@ -139,17 +139,17 @@ ggplot(data_clean, aes(x = lfhf, y = nasa, group = factor(participant), color = 
 
 </details>
 
-## Ethics & Privacy
+## ⚖️ Ethics & Privacy
 
 The dataset I used is from Kaggle, a crowdsourced platform where data scientists share data for public use. In the original dataset, each participant was assigned a unique code or number to ensure anonymity. No new data was collected for this analysis.
 
-## Lessons Learned
+## 💡 Lessons Learned
 
 ### Insights Don't Speak for Themselves
 
 Data scientists are trained to find insights, but communicating them is often an afterthought. The final stage of the scientific process — translating results for a wider audience — is where analysis either lands or gets lost. An analysis is only as good as its explanation, and you can't assume your audience shares your background knowledge. To help others build a good mental model of the data, you need to invest as much time in visualizations as methodology. For those that want to learn more about data science, I highly recommend UC Love Data Week. I learned so much and look forward to next year's event!
 
-## References
+## 📚 References
 
 Gao, Q., Wang, Y., Song, F., Li, Z., & Dong, X. (2013). Mental workload measurement for emergency operating procedures in digital nuclear power plants. *Ergonomics*, 56(7), 1070–1085. https://doi.org/10.1080/00140139.2013.790483
 
